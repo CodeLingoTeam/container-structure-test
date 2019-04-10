@@ -40,7 +40,7 @@ as well as verify metadata and contents of the filesystem.`,
 
 func NewRootCommand(out, err io.Writer) *cobra.Command {
 	rootCmd.PersistentPreRunE = func(cmd *cobra.Command, _ []string) error {
-		if err := SetUpLogs(err, v); err != nil {
+		if innererr := SetUpLogs(innererr, v); innererr != nil {
 			return err
 		}
 

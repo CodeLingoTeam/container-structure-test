@@ -69,11 +69,11 @@ func NewCmdTest(out io.Writer) *cobra.Command {
 					return err
 				}
 				rootCmd.SetOutput(testReportFile)
-				out = testReportFile // override writer
+				innerout = testReportFile // override writer
 			}
 
 			if opts.Quiet {
-				out = ioutil.Discard
+				innerout = ioutil.Discard
 			}
 
 			return run(out)
